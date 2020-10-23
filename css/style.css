@@ -3,3 +3,26 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    padding: 20px;
+    text-align: center;
+    flex-basis: 150px;
+    background: #002;
+}
+
+select,
+button {
+    padding: 10px;
+}
+
+.main {
+    flex-grow: 1;
+    background: #400;
+}
