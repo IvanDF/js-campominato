@@ -39,10 +39,11 @@ h1 {
     margin-bottom: 25px;
     font-size: 32px;
 }
-h4 {
+p {
     margin-bottom: 10px;
     font-size: 28px;
 }
 span {
+    font-weight: bold;
     text-decoration: underline;
 }

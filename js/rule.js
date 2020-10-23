@@ -15,7 +15,6 @@ document.getElementById('bottone').addEventListener('click', function(){
 
     // BOMBE
     var bombeTot = []
-    var numUtenteTot = []
     var numBombe = 16
 
     // SELEZIONE DIFFICOLTÁ 
@@ -54,12 +53,12 @@ document.getElementById('bottone').addEventListener('click', function(){
     document.getElementById('n-tentativi').innerHTML = 'Numero di tentativi per vincere: ' + diff;
     document.getElementById('lista-bombe').innerHTML = 'Lista dei numeri bomba: ' + bombeTot;
 
-
+    // RICHIESTA NUMERI
     for ( i = 0; i < diff; i++ ) {
         var numUtente = parseInt( prompt( 'Inserisci un numero da 1 a ' + numMax ) );
         
         while ( (isNaN(numUtente) ) || (numUtente <= 0) || (numUtente > 100) )  {
-            numUtente = parseInt( prompt( 'Non hai inserito un carattere valido, prego inserire un numero da 1 a 100' ) );
+            numUtente = parseInt( prompt( 'Non hai inserito un carattere valido, prego inserire un numero da 1 a ' + numMax ) );
         }
 
         var risultato = document.getElementById('risultato')
@@ -75,10 +74,8 @@ document.getElementById('bottone').addEventListener('click', function(){
         alert('HAI VINTO')
         risultato.innerHTML = 'Hai vinto';
     }
-    document.getElementById('tentativi').innerHTML = 'Tentativi fatti: ' + (i + 1);
+    document.getElementById('tentativi').innerHTML = i + 1;
 })
-
-
 
 // FUNZIONE GENERAZIONE NUMERI CASUALI
 function genBombe(min, max) {
