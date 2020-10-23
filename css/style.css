@@ -8,21 +8,41 @@ body {
     height: 100vh;
     display: flex;
     flex-direction: column;
+    font-family: sans-serif;
 }
 
 .header {
-    padding: 20px;
-    text-align: center;
-    flex-basis: 150px;
-    background: #002;
+    padding: 50px 20px;
+    display: flex;
+    justify-content: center;
+    background: #eee;
 }
 
 select,
 button {
-    padding: 10px;
+    background: #99f;
+    margin: 0 10px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    -webkit-appearance: none;
 }
 
 .main {
+    text-align: center;
     flex-grow: 1;
-    background: #400;
+    background: #999;
+}
+h1 {
+    margin-bottom: 25px;
+    font-size: 32px;
+}
+h4 {
+    margin-bottom: 10px;
+    font-size: 28px;
+}
+span {
+    text-decoration: underline;
 }

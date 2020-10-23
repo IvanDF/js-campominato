@@ -2,35 +2,45 @@
  *  PRATO FIORITO
  *********************/
 
+// ELEMENTI
+
+
+
+// UTENTE
+
+
+
 document.getElementById('bottone').addEventListener('click', function(){
+
+
+    // BOMBE
+    var bombeTot = []
+    var numUtenteTot = []
+    var numBombe = 16
 
     // SELEZIONE DIFFICOLTÁ 
     var diff = 0;
     var numMax = 0;
 
     var livelloScelto = document.getElementById('difficolta').value
-    console.log(livelloScelto);
+    document.getElementById('livello-difficolta').innerHTML = 'Hai scelto la difficoltá ' + livelloScelto;
 
     switch(livelloScelto) {
         case 'facile':
-            diff = 20 - numBombe;
             numMax = 100;
+            diff = numMax - numBombe;
             break
         case 'normale':
-            diff = 24 - numBombe;
             numMax = 80;
+            diff = numMax - numBombe;
             break
         case 'difficile':
-            diff = 28 - numBombe;
             numMax = 50;
+            diff = numMax - numBombe;
             break
         default:
             'none'
     }
-
-    // BOMBE
-    var bombeTot = []
-    var numBombe = 16
 
     // GENERAZIONE BOMBE
     while (bombeTot.length < numBombe) {
@@ -41,28 +51,33 @@ document.getElementById('bottone').addEventListener('click', function(){
         }
         
     }
+    document.getElementById('n-tentativi').innerHTML = 'Numero di tentativi per vincere: ' + diff;
+    document.getElementById('lista-bombe').innerHTML = 'Lista dei numeri bomba: ' + bombeTot;
 
-    console.log(bombeTot);
-    console.log(diff);
 
     for ( i = 0; i < diff; i++ ) {
         var numUtente = parseInt( prompt( 'Inserisci un numero da 1 a ' + numMax ) );
+        
         while ( (isNaN(numUtente) ) || (numUtente <= 0) || (numUtente > 100) )  {
             numUtente = parseInt( prompt( 'Non hai inserito un carattere valido, prego inserire un numero da 1 a 100' ) );
         }
+
+        var risultato = document.getElementById('risultato')
     
         var check = bombeTot.includes(numUtente);
         if ( check == true ) {
-            alert('hai perso');
+            alert('Hai perso');
+            risultato.innerHTML = 'Hai perso';
             break;
         }
     }
     if (i === diff) {
         alert('HAI VINTO')
-        console.log('hai vinto');
+        risultato.innerHTML = 'Hai vinto';
     }
-    console.log( 'Tentativi: ' + i);
+    document.getElementById('tentativi').innerHTML = 'Tentativi fatti: ' + (i + 1);
 })
+
 
 
 // FUNZIONE GENERAZIONE NUMERI CASUALI
