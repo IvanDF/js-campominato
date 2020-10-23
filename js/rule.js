@@ -13,14 +13,17 @@
 document.getElementById('bottone').addEventListener('click', function(){
 
 
-    // BOMBE
-    var bombeTot = []
-    var numBombe = 16
-
-    // SELEZIONE DIFFICOLTÁ 
+    // VARIABILI PREDEFINITE
     var diff = 0;
     var numMax = 0;
-
+    var numBombe = 16;
+    
+    // ARRAYS
+    var bombeTot = []
+    var numeriUtente = []
+    
+    
+    // SELEZIONE DIFFICOLTÁ 
     var livelloScelto = document.getElementById('difficolta').value
     document.getElementById('livello-difficolta').innerHTML = 'Hai scelto la difficoltá ' + livelloScelto;
 
@@ -60,6 +63,13 @@ document.getElementById('bottone').addEventListener('click', function(){
         while ( (isNaN(numUtente) ) || (numUtente <= 0) || (numUtente > 100) )  {
             numUtente = parseInt( prompt( 'Non hai inserito un carattere valido, prego inserire un numero da 1 a ' + numMax ) );
         }
+
+        while ( numeriUtente.includes(numUtente) ) {
+            numUtente = parseInt( prompt( 'Hai giá inserito questo numero, prego inserire un numero da 1 a ' + numMax ) );
+        }
+        
+        numeriUtente.push(numUtente)
+        console.log(numeriUtente);
 
         var risultato = document.getElementById('risultato')
     
